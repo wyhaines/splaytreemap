@@ -1,8 +1,12 @@
 # Splaytreemap
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/splaytreemap`. To experiment with that code, run `bin/console` for an interactive prompt.
+A Splay Tree is a self adjusting binary search tree with the additional property that recently accessed elements are faster to access than less recently accessed elements. This makes them quite useful for the implementation of caches.
 
-TODO: Delete this and the text above, and describe your gem
+This particular implementation also implements a twist to the Splay Tree such that if it is given a maximum size, once it's element count exceeds that maximum size, it will purge all elemements which are stored in nodes at the terminal ends of the data structure. This should generally result in a bit more than half of the nodes being purged, though the exact number will depend on how the tree is balanced at the time, which is in turn affected by which nodes have been accessed recently.
+
+This implementation is written in C++, with a Ruby interface that seeks to provide a Hash-like API. This data structure has been in my toolbox for a long time, but it can almost certainly use some improvement of the API to be even more transparently Hash-like.
+
+The current implementation has a limitation that the key for the splay tree map has to be a String value.
 
 ## Installation
 
@@ -22,7 +26,14 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+```ruby
+require 'splaytreemap'
+
+s = Splaytreemap.new
+
+s.max_size = 1000
+
+s['this'] = 'that'
 
 ## Development
 
