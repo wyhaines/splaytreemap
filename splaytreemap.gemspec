@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.email         = ["wyhaines@gmail.com"]
 
   spec.summary       = %q{An implementation of Splay Tree, with a size limitation feature, offering a Map style API. Very useful for caches.}
-  spec.description   = %q{A Splay Tree is a self adjusting binary search tree with the additional property that recently accessed elements are quick to access again. This makes it useful for caches because the most commonly accessed elements will be the fastest ones to access. This tree has an additional feature that allows it's maximum size to be restricted. When it exceeds it's maximum size, it will drop all of the nodes which are at the terminal ends of the tree structure, leaving the more commonly accessed nodes intact. This implementation is written in C++ with a Ruby wrapper.}
+  spec.description   = %q{A Splay Tree is a self adjusting binary search tree with the additional property that recently accessed elements are quick to access again. This makes it useful for caches because the most commonly accessed elements will be the fastest ones to access. This tree has an additional feature that allows it's maximum size to be restricted. When it exceeds it's maximum size, it will drop all of the nodes which are at the terminal ends of the tree structure, leaving many of the more commonly accessed nodes intact. This implementation is written in C++ with a Ruby wrapper.}
   spec.homepage      = "http://github.com/wyhaines/splaytreemap"
   spec.license       = "MIT"
 
