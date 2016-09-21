@@ -1,11 +1,24 @@
 #include <ruby.h>
 #include "splaytreemap.h"
 
+static VALUE rb_sptm_alloc(VALUE klass)
+{
+    RSplayTreeMap *sptm = NULL;
+    VALUE obj;
+    obj = Data_Make_Struct(klass, RSplayTreeMap, rb_mark_sptm, rb_free_sptm, sptm);
+    sptm->height = 0;
+    sptm->size = 0;
+    sptm->max_size = 0;
+    sptm->root = NULL;
+
+    return obj;
+}
+
 void Init_splaytreemap()
 {
 	rb_SplayTreeMapClass = rb_define_class("Splaytreemap", rb_cObject);
 
-//	rb_define_alloc_func (SplayTreeMapClass, sptm_alloc);
+	rb_define_alloc_func (rb_SplayTreeMapClass, rb_sptm_alloc);
 //	rb_define_method (SplayTreeMapClass, "initialize", (VALUE(*)(...))sptm_initialize,0);
 	// ==
 //	rb_define_method (SplayTreeMapClass, "[]", (VALUE(*)(...))sptm_at,1);

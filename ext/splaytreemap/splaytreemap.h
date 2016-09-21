@@ -1,11 +1,18 @@
 typedef struct {
   VALUE key,
   VALUE value,
-  short int depth,
+  short int height,
   void *parent,
   void *left,
   void *right
 } RSplayTreeMapNode;
+
+typedef struct {
+  short int height,
+  int size,
+  int max_size,
+  RSplayTreeMapNode root
+} RSplayTreeMap;
 
 VALUE rb_SplayTreeMapClass;
 
